@@ -25,20 +25,118 @@ import com.redarctic.nadia.controls.DirectionalPad;
 
 import android.app.Activity;
 import android.graphics.Point;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnTouchListener;
+import android.view.Window;
 
-public class GameSurface 
+public abstract class GameSurface 
 extends Activity
 implements OnTouchListener {
 	Point screenSize;
 	
-	DirectionalPad gamePad;
-
+	protected DirectionalPad gamePad = null;
+	protected GameSurfaceView view;
+	
+	static GameSurface ref;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(
+				WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		this.screenSize = new Point();
+		this.loadGamePad();
+		if (null == this.gamePad)
+			this.view = new GameSurfaceView(this);
+		else
+			this.view = new GameSurfaceView(this, this.gamePad);
+		this.loadScreenSize();
+		this.loadResources();		
+		
+		this.view.setOnTouchListener(this);
+		
+		setContentView(this.view);
+		GameSurface.ref = this;
+	}
+	
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		if (this.gamePad != null)
+			this.gamePad.onTouch(v, event);
+		
+		return true;
 	}
+			
+	@Override
+	protected void onStop() {
+		if (this.gamePad != null) {
+			this.gamePad.destroy();
+			this.gamePad = null;
+		}
+		
+		super.onStop();
+		System.gc();
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		this.view.pause();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		this.view.resume();
+	}
+	
+	public static GameSurface getRef() {
+		return ref;
+	}
+	
+	public static String getStringResource(int resourceId) {
+		String strResourceString = "";
+		
+		strResourceString = getRef().getString(resourceId);
+		
+		return strResourceString;
+	}
+
+	public GameSurfaceView getView() {
+		return view;
+	}
+	
+	public void setView(GameSurfaceView view) {
+		this.view = view;
+	}
+
+	public Point getScreenSize() {
+		return screenSize;
+	}
+
+	public DirectionalPad getGamePad() {
+		return gamePad;
+	}
+	
+	public GameState getCurrentState() {
+		return this.view.getStateManager().getCurrentState();
+	}
+	
+	protected void loadScreenSize() {
+		DisplayMetrics metrics = getBaseContext().getResources().getDisplayMetrics();
+		
+		this.screenSize.x = metrics.widthPixels;
+		this.screenSize.y = metrics.heightPixels;
+	}
+	
+	protected abstract void loadResources();
+	protected abstract void loadGamePad();
 }

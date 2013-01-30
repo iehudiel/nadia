@@ -1,5 +1,19 @@
 <resources>
 
     <string name="app_name">Nadia</string>
-
+    
+    <string name="knight_class_name">Knight</string>
+    <string name="knight_class_description">A mighty warrior that can wear heavy armor</string>
+    <string name="templar_class_name">Templar knight</string>
+    <string name="templar_class_description">Knight who has dedicated his life to perfect the knights techniques and can use holy magic as a God soldier</string>
+    <string name="spartan_class_name">Spartan</string>
+    <string name="spartan_class_description">An all mighty warriors who excels in offense-defense</string>
+    <string name="rogue_class_name">Rogue</string>
+    <string name="rogue_class_description">A light armor user that can use stealth to strike his enemies</string>
+    <string name="hunter_class_name">Hunter</string>
+    <string name="hunter_class_description"/>
+    <string name="assasin_class_name">Assassin</string>
+    <string name="assasin_class_description">Assassin</string>
+    <string name="martial_artist_class_name">Martial Artist</string>
+    <string name="martial_artist_class_description">Martial Artist</string>
 </resources>
