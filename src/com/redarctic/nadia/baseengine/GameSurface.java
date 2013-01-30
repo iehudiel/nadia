@@ -38,8 +38,8 @@ extends Activity
 implements OnTouchListener {
 	Point screenSize;
 	
-	DirectionalPad gamePad = null;
-	GameSurfaceView view;
+	protected DirectionalPad gamePad = null;
+	protected GameSurfaceView view;
 	
 	static GameSurface ref;
 	
@@ -52,14 +52,14 @@ implements OnTouchListener {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN, 
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		this.screenSize = new Point();
-		this.loadScreenSize();
-		this.loadResources();
 		this.loadGamePad();
-		
 		if (null == this.gamePad)
 			this.view = new GameSurfaceView(this);
 		else
 			this.view = new GameSurfaceView(this, this.gamePad);
+		this.loadScreenSize();
+		this.loadResources();		
+		
 		this.view.setOnTouchListener(this);
 		
 		setContentView(this.view);

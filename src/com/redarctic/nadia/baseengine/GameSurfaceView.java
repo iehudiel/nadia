@@ -113,10 +113,25 @@ implements Runnable, DrawableObject, ISlotProvider {
 	
 	public void resume() {
 		this.isItOK = true;
+		
+		if (this.t == null) {
+			this.t = new Thread(this);
+			this.t.start();
+		}
 	}
 	
 	public void pause() {
 		this.isItOK = false;
+		
+		while (true) {
+			try {
+				this.t.join(1000);
+				break;
+			}
+			catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public void setCurrentState(GameState state) {
