@@ -152,4 +152,8 @@ implements Runnable, DrawableObject, ISlotProvider {
 					SlotProviderMethodPair.create(this, "setCurrentState", GameState.class));
 		}
 	}
+	
+	public GameStateManager getStateManager() {
+		return this.stateManager;
+	} 
 }

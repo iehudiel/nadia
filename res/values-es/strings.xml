@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+	<string name="knight_class_name">Caballero</string>
+	<string name="knight_class_description">Caballero que usa armadura pesada</string>
+	<string name="templar_class_name">Caballero Templario</string>
+	<string name="templar_class_description">Caballero que ha dedicado su vida a perfeccionar las técnicas de un caballero tradicional y como soldado de Dios, puede hacer uso de magia sagrada</string>
+	<string name="spartan_class_name">Espartano</string>
+	<string name="spartan_class_description">Fuertes guerreros que son perfectos en pelear defensivo y ofensivo</string>
+	<string name="rogue_class_name">Rogue</string>
+	<string name="rogue_class_description">Usuario de una armadura ligera que le ayuda para ser sigiloso para embestir a sus enemigos</string>
+	<string name="hunter_class_name">Cazador</string>
+	<string name="hunter_class_description"/>
+	<string name="assasin_class_name">Asesino</string>
+	<string name="assasin_class_description">Asesino</string>
+	<string name="martial_artist_class_name">Artista Marcial</string>
+	<string name="martial_artist_class_description">Martial Artist</string>
+</resources>

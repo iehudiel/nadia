@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-
-    <string name="app_name">Nadia</string>
-    
     <string name="knight_class_name">Knight</string>
     <string name="knight_class_description">A mighty warrior that can wear heavy armor</string>
     <string name="templar_class_name">Templar knight</string>

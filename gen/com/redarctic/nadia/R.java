@@ -15,6 +15,20 @@ public final class R {
     }
     public static final class string {
         public static int app_name=0x7f030000;
+        public static int assasin_class_description=0x7f03000c;
+        public static int assasin_class_name=0x7f03000b;
+        public static int hunter_class_description=0x7f03000a;
+        public static int hunter_class_name=0x7f030009;
+        public static int knight_class_description=0x7f030002;
+        public static int knight_class_name=0x7f030001;
+        public static int martial_artist_class_description=0x7f03000e;
+        public static int martial_artist_class_name=0x7f03000d;
+        public static int rogue_class_description=0x7f030008;
+        public static int rogue_class_name=0x7f030007;
+        public static int spartan_class_description=0x7f030006;
+        public static int spartan_class_name=0x7f030005;
+        public static int templar_class_description=0x7f030004;
+        public static int templar_class_name=0x7f030003;
     }
     public static final class style {
         /** 
